@@ -6,19 +6,29 @@ This demo shows you how to deploy your app to Azure App Service from a local Git
 
 1. To download a sample repository, run the following command in your Git Bash window:
 
-   
-
    ```
    git clone https://github.com/Azure-Samples/html-docs-hello-world.git
    ```
 
-   
-
    Later in the demo you'll be entering more commands in the Git Bash window so be sure to leave it open.
+
+   En el local crear una carpeta para vincularla a ese [repositorio](https://github.com/Azure-Samples/html-docs-hello-world), y desde el gitbash situarme dentro de la carpeta. Entonces clonar el repositorio con el comando `git clone` anterior.
+
+   ![P03-CreateWebAppByGit_01](images/P03-CreateWebAppByGit_01.png)
+
+   ![P03-CreateWebAppByGit_01](images/P03-CreateWebAppByGit_02.png)
+
+   Dentro de la carpeta local creada anteriormente (que realmente no hubiera sido necesario crearla) se crea el repositorio clonado en su propia carpeta.
+
+   ![P03-CreateWebAppByGit_01](images/P03-CreateWebAppByGit_03.png)
 
 2. Launch the Azure Cloud Shell and be sure to select the **Bash** environment.
 
    - You can either launch the Cloud Shell through the portal (https://portal.azure.com), or by launching the shell directly (https://shell.azure.com).
+   
+     ![P03-CreateWebAppByGit_01](images/P03-CreateWebAppByGit_04.png)
+   
+     
 
 #### Create the web app
 
@@ -26,32 +36,22 @@ In the Cloud Shell run the following commands to create the web app and the nece
 
 1. Create a resource group:
 
-   
-
    ```
    az group create --location <MyLocation> --name <MyResourceGroup>
    ```
-
    
-
 2. Create an app service plan:
-
-   
 
    ```
    az appservice plan create --name <MyPlan> --resource-group <MyResourceGroup>
    ```
-
    
-
 3. Create the web app:
-
-   
 
    ```
    az webapp create --name <MyUniqueApp> --resource-group <MyResourceGroup> --plan <MyPlan>  --deployment-local-git
    ```
-
+   
    
 
 #### Deploy with Kudu build server
@@ -62,45 +62,35 @@ The first two steps in this section are performed in the Cloud Shell, the third 
 
 1. Configure a deployment user.
 
-   
-
    ```
    az webapp deployment user set \
        --user-name <username> \
        --password <password>
    ```
-
    
-
    - The username must be unique within Azure, and for local Git pushes, must not contain the ‘@’ symbol.
    - The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols.
    - The JSON output shows the password as null. If you get a 'Conflict'. Details: 409 error, change the username. If you get a 'Bad Request'. Details: 400 error, use a stronger password.
 
    Record your username and password to use to deploy your web apps.
-
+   
 2. Get the web app deployment URL, the deployment URL is used in the Git Bash window to connect your local Git repository to the web app:
 
-   
-
    ```
-   az webapp deployment source config-local-git --name <MyUniqueApp> --resource-group <MyResourceGroup>
+az webapp deployment source config-local-git --name <MyUniqueApp> --resource-group <MyResourceGroup>
    ```
-
    
-
    The command will return JSON similar to the example below, you'll use the URL in the Git Bash window in the next step.
 
    ```
-   {
+{
    "url": "https://<deployment-user>@<MyUniqueApp>.scm.azurewebsites.net/<MyUniqueApp>.git"
-   }
+}
    ```
-
+   
    ```
    az webapp deployment source show --name <MyUniqueApp> --resource-group <MyResourceGroup>
    ```
-
-   
 
 3. Deploy the web app:
 
