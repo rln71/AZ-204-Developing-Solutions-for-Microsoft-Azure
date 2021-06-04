@@ -1,9 +1,3 @@
----
-demo:
-    title: 'Demo: Create a Web App by using the Azure Portal'
-    module: 'Module 1: Creating Azure App Service Web Apps'
----
-
 Create a Web App by using the Azure Portal
 =================================
 
