@@ -1,9 +1,3 @@
----
-demo:
-    title: 'Demo: Create a Web App with a local Git deployment source'
-    module: 'Create a static HTML web app by using Azure Cloud Shell'
----
-
 # Create a Web App with a local Git deployment source
 
 This demo shows you how to deploy your app to Azure App Service from a local Git repository by using the Kudu build server and the Azure CLI.

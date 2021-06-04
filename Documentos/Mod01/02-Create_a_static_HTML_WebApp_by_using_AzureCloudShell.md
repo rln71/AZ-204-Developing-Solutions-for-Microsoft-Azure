@@ -1,9 +1,3 @@
----
-demo:
-    title: 'Demo: Create a static HTML web app by using Azure Cloud Shell'
-    module: 'Module 1: Creating Azure App Service Web Apps'
----
-
 Create a static HTML web app by using Azure Cloud Shell
 =================================
 
