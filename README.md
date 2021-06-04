@@ -4,8 +4,8 @@ Listado de evidencias. Click en el título de cada práctica para visitar su pá
 
 | Tipo  | Descripción                                |
 | ----- | ------------------------------------------ |
-| Módulo1 (Demo1) | [Create a Web App by using the Azure Portal](/Documentos/01-Create_a_WebApp_by_using_AzurePortal.md) |
-| Módulo1 (Demo2) | [Create a static HTML web app by using Azure Cloud Shell](Documentos/02-Create_a_static_HTML_WebApp_by_using_AzureCloudShell.html) |
+| Módulo1 (Demo1) | [Create a Web App by using the Azure Portal](Documentos/01-Create_a_WebApp_by_using_AzurePortal.md) |
+| Módulo1 (Demo2) | [Create a static HTML web app by using Azure Cloud Shell](Documentos/02-Create_a_static_HTML_WebApp_by_using_AzureCloudShell.md) |
 | Módulo1 (Demo3) | [Create a Web App with a local Git deployment source](Documentos/03-Create_a_webapp_by_localGitdeployment.md) |
 
 
