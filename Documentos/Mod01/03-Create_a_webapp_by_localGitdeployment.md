@@ -1,7 +1,7 @@
 ---
-lab:
-    title: 'Lab: Validate lab environment'
-    module: 'Module 0: Course introduction'
+demo:
+    title: 'Demo: Create a Web App with a local Git deployment source'
+    module: 'Create a static HTML web app by using Azure Cloud Shell'
 ---
 
 # Create a Web App with a local Git deployment source
