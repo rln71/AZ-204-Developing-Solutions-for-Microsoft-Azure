@@ -24,7 +24,7 @@ This demo shows you how to deploy your app to Azure App Service from a local Git
 
    
 
-   Dentro de la carpeta local **temp** creada anteriormente, se ha creado el repositorio *.git* clonado en su propia carpeta **html-docs-hello-world**. Esta estructura de carpetas y ficheros contiene la *webapp* que quiero llevar a *Azure*.
+   Dentro de la carpeta local **temp** creada anteriormente, se ha creado el repositorio *.git* clonado en su propia carpeta **html-docs-hello-world**. Esta estructura de carpetas y ficheros contiene la *webapp* que quiero llevar a *Azure*. Después podré trabajar en mi local con la *webapp* y subir los cambios a *Azure* con **Git**.
 
    ![P03-CreateWebAppByGit_01](images/P03-CreateWebAppByGit_03b.png)
 
