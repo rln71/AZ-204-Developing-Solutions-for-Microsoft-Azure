@@ -36,8 +36,6 @@ Create a Web App by using the Azure Portal
 
 ![P01-CreateWebApp_01](images/P01-CreateWebApp_04.png)
 
-![P01-CreateWebApp_01](images/P01-CreateWebApp_04.png)
-
 ![P01-CreateWebApp_01](images/P01-CreateWebApp_05.png)
 
 ### Modificar la página de bienvenida de la *webapp*
