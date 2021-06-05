@@ -1,11 +1,3 @@
----
-lab:
-    az204Title: 'Lab 01: Building a web application on Azure platform as a service offerings'
-    az020Title: 'Lab 01: Building a web application on Azure platform as a service offerings'
-    az204Module: 'Module 01: Creating Azure App Service Web Apps'
-    az020Module: 'Module 01: Creating Azure App Service Web Apps'
----
-
 # Lab 01: Building a web application on Azure platform as a service offerings
 # Student lab manual
 
@@ -23,34 +15,6 @@ After you complete this lab, you will be able to:
 
 -   Deploy apps by using Kudu, the Azure Command-Line Interface (CLI), and zip file deployment.
 
-## Lab setup
-
--   Estimated time: **45 minutes**
-
-## Instructions
-
-### Before you start
-
-#### Sign in to the lab virtual machine
-
-Ensure that you're signed in to your Windows 10 virtual machine by using the following credentials:
-    
--   Username: **Admin**
-
--   Password: **Pa55w.rd**
-
-#### Review the installed applications
-
-Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for the applications that you'll use in this lab:
-    
--   Microsoft Edge
-
--   File Explorer
-
--   Windows PowerShell
-
--   Visual Studio Code
-
 ### Exercise 1: Build a back-end API by using Azure Storage and the Web Apps feature of Azure App Service
 
 #### Task 1: Open the Azure portal
@@ -58,6 +22,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 1.  Sign in to the Azure portal (<https://portal.azure.com>).
 
     > **Note**: If this is your first time signing in to the Azure portal, a dialog box will display offering a tour of the portal. Select **Get Started** to skip the tour.
+
 
 #### Task 2: Create a Storage account
 
@@ -75,11 +40,15 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
     -   Replication: **Locally-redundant storage (LRS)**
 
+![P04-BuildingWebAppOnAzureAsServiceOfferings_01](images/P04-BuildingWebAppOnAzureAsServiceOfferings_01.png)
+
 1.  Wait for Azure to finish creating the storage account before you move forward with the lab. You'll receive a notification when the account is created.
 
 1.  Access the **Access Keys** blade of your newly created storage account instance.
 
 1.  Record the value of the **Connection string** text box. You'll use this value later in this lab.
+
+![P04-BuildingWebAppOnAzureAsServiceOfferings_02](images/P04-BuildingWebAppOnAzureAsServiceOfferings_02.png)
 
 #### Task 3: Upload a sample blob
 
@@ -93,9 +62,15 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
     -   Public access level: **Blob (anonymous read access for blobs only)**
 
+![P04-BuildingWebAppOnAzureAsServiceOfferings_03](images/P04-BuildingWebAppOnAzureAsServiceOfferings_03.png)
+
 1.  Go to the new **images** container, and then use the **Upload** button to upload the **grilledcheese.jpg** file in the **Allfiles (F):\\Allfiles\\Labs\\01\\Starter\\Images** folder on your lab machine.
 
     > **Note**: We recommended that you enable the **Overwrite if files already exist** option.
+
+![P04-BuildingWebAppOnAzureAsServiceOfferings_05](images/P04-BuildingWebAppOnAzureAsServiceOfferings_05.png)
+
+![P04-BuildingWebAppOnAzureAsServiceOfferings_06](images/P04-BuildingWebAppOnAzureAsServiceOfferings_06.png)
 
 #### Task 4: Create a web app
 
@@ -119,6 +94,8 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
     -	Application Insights: **Disabled**
 
+![P04-BuildingWebAppOnAzureAsServiceOfferings_06](images/P04-BuildingWebAppOnAzureAsServiceOfferings_06.png)
+
 1.  Wait for Azure to finish creating the web app before you move forward with the lab. You'll receive a notification when the app is created.
 
 #### Task 5: Configure the web app
@@ -133,11 +110,17 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
     -   Deployment slot setting: **Not selected**
 
+![P04-BuildingWebAppOnAzureAsServiceOfferings_07](images/P04-BuildingWebAppOnAzureAsServiceOfferings_07.png)
+
+![P04-BuildingWebAppOnAzureAsServiceOfferings_08](images/P04-BuildingWebAppOnAzureAsServiceOfferings_08.png)
+
 1.  Save your changes to the application settings.
 
 1.  In the **Settings** section, find the **Properties** section.
 
 1.  In the **Properties** section, copy the value of the **URL** text box. You'll use this value later in the lab.
+
+![P04-BuildingWebAppOnAzureAsServiceOfferings_09](images/P04-BuildingWebAppOnAzureAsServiceOfferings_09.png)
 
     > **Note**: At this point, the web server at this URL will return a 404 error. You have not deployed any code to the Web App yet. You will deploy code to the Web App later in this lab.
 
@@ -147,38 +130,44 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
 1.  Open the **Controllers\\ImagesController.cs** file, and then observe the code in each of the methods.
 
-1.  Open the Windows Terminal application.
+1. Open the Windows Terminal application.
 
-1.  Sign in to the Azure CLI by using your Azure credentials:
+1. Sign in to the Azure CLI by using your Azure credentials:
 
-    ```
-    az login
-    ```
+   ```
+   az login
+   ```
+   ![P04-BuildingWebAppOnAzureAsServiceOfferings_10](images/P04-BuildingWebAppOnAzureAsServiceOfferings_10.png)
+   
+1. List all the apps in your **ManagedPlatform** resource group:
 
-1.  List all the apps in your **ManagedPlatform** resource group:
+   ```
+   az webapp list --resource-group ManagedPlatform
+   ```
+   ![P04-BuildingWebAppOnAzureAsServiceOfferings_11](images/P04-BuildingWebAppOnAzureAsServiceOfferings_11.png)
+   
+1. Find the apps that have the **imgapi\*** prefix:
 
-    ```
-    az webapp list --resource-group ManagedPlatform
-    ```
+   ```
+   az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgapi')]"
+   ```
 
-1.  Find the apps that have the **imgapi\*** prefix:
+   
 
-    ```
-    az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgapi')]"
-    ```
+1. Print only the name of the single app that has the **imgapi\*** prefix:
 
-1.  Print only the name of the single app that has the **imgapi\*** prefix:
+   ```
+   az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgapi')].{Name:name}" --output tsv
+   ```
+   ![P04-BuildingWebAppOnAzureAsServiceOfferings_12](images/P04-BuildingWebAppOnAzureAsServiceOfferings_12.png)
+   
+1. Change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\01\\Starter\\API** directory that contains the lab files:
 
-    ```
-    az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgapi')].{Name:name}" --output tsv
-    ```
-
-1.  Change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\01\\Starter\\API** directory that contains the lab files:
-
-    ```
-    cd F:\Allfiles\Labs\01\Starter\API\
-    ```
-
+   ```
+   cd F:\Allfiles\Labs\01\Starter\API\
+   ```
+   ![P04-BuildingWebAppOnAzureAsServiceOfferings_13](images/P04-BuildingWebAppOnAzureAsServiceOfferings_13.png)
+   
 1.  Deploy the **api.zip** file to the web app that you created earlier in this lab:
 
     ```
@@ -187,7 +176,13 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
     > **Note**: Replace the *\<name-of-your-api-app\>* placeholder with the name of the web app that you created earlier in this lab. You recently queried this app’s name in the previous steps.
 
+![P04-BuildingWebAppOnAzureAsServiceOfferings_14](images/P04-BuildingWebAppOnAzureAsServiceOfferings_14.png)
+
+![P04-BuildingWebAppOnAzureAsServiceOfferings_15](images/P04-BuildingWebAppOnAzureAsServiceOfferings_15.png)
+
 1.	Access the **imgapi*[yourname]*** web app that you created earlier in this lab. Open the **imgapi*[yourname]*** web app in your browser.
+
+![P04-BuildingWebAppOnAzureAsServiceOfferings_16](images/P04-BuildingWebAppOnAzureAsServiceOfferings_16.png)
 
 1.	Perform a GET request to the root of the website, and then observe the JavaScript Object Notation (JSON) array that's returned. This array should contain the URL for your single uploaded image in your storage account.
 
@@ -219,6 +214,8 @@ In this exercise, you created a web app in Azure and then deployed your ASP.NET 
 
     -	Application Insights: **Disabled**
 
+![P04-BuildingWebAppOnAzureAsServiceOfferings_17](images/P04-BuildingWebAppOnAzureAsServiceOfferings_17.png)
+
 1.  Wait for Azure to finish creating the web app before you move forward with the lab. You'll receive a notification when the app is created.
 
 #### Task 2: Configure a web app
@@ -236,6 +233,8 @@ In this exercise, you created a web app in Azure and then deployed your ASP.NET 
     -   Deployment slot setting: **Not selected**
 
     > **Note**: Make sure you include the protocol, such as **https://**, in the URL that you copy into the **Value** text box for this application setting.
+
+![P04-BuildingWebAppOnAzureAsServiceOfferings_18](images/P04-BuildingWebAppOnAzureAsServiceOfferings_18.png)
 
 1.  Save your changes to the application settings.
 
@@ -268,13 +267,14 @@ In this exercise, you created a web app in Azure and then deployed your ASP.NET 
     ```
     az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgweb')].{Name:name}" --output tsv
     ```
+    ![P04-BuildingWebAppOnAzureAsServiceOfferings_19](images/P04-BuildingWebAppOnAzureAsServiceOfferings_19.png)
 
 1.  Change your current directory to the **Allfiles (F):\\Allfiles\\Labs\\01\\Starter\\Web** directory that contains the lab files:
 
     ```
     cd F:\Allfiles\Labs\01\Starter\Web\
     ```
-    
+
 1.  Deploy the **web.zip** file to the web app that you created earlier in this lab:
 
     ```
@@ -282,12 +282,20 @@ In this exercise, you created a web app in Azure and then deployed your ASP.NET 
     ```
 
     > **Note**: Replace the *\<name-of-your-web-app\>* placeholder with the name of the web app that you created earlier in this lab. You recently queried this app’s name in the previous steps.
-    
+
+![P04-BuildingWebAppOnAzureAsServiceOfferings_20](images/P04-BuildingWebAppOnAzureAsServiceOfferings_20.png)
+
+![P04-BuildingWebAppOnAzureAsServiceOfferings_21](images/P04-BuildingWebAppOnAzureAsServiceOfferings_21.png)
+
 1.  Access the **imgweb*[yourname]*** web app that you created earlier in this lab. Open the **imgweb*[yourname]*** web app in your browser.
+
+![P04-BuildingWebAppOnAzureAsServiceOfferings_22](images/P04-BuildingWebAppOnAzureAsServiceOfferings_22.png)
 
 1.	From the **Contoso Photo Gallery** webpage, find the **Upload a new image** section, and then upload the **bahnmi.jpg** file in the **Allfiles (F):\\Allfiles\\Labs\\01\\Starter\\Images** folder on your lab machine.
 
     > **Note**: Ensure you click the **Upload** button to upload the image to Azure.
+
+![P04-BuildingWebAppOnAzureAsServiceOfferings_23](images/P04-BuildingWebAppOnAzureAsServiceOfferings_23.png)
 
 1.	Observe that the list of gallery images has updated with your new image.
 
@@ -314,6 +322,7 @@ In this exercise, you created an Azure web app and deployed an existing web appl
     ```
     az group delete --name ManagedPlatform --no-wait --yes
     ```
+![P04-BuildingWebAppOnAzureAsServiceOfferings_24](images/P04-BuildingWebAppOnAzureAsServiceOfferings_24.png)
 
 1.  Close the Cloud Shell pane in the portal.
 
