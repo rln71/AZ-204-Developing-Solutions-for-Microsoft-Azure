@@ -13,5 +13,5 @@ Registro de evidencias. Click en el título de cada práctica para visitar su p�
 ### Module 2 Implement Azure Functions
 | Tipo  | Descripción                                |
 | ----- | ------------------------------------------ |
-| Lab 1 | [Building a web application on Azure platform as a service offerings](Documentos/Mod01/01-Create_a_WebApp_by_using_AzurePortal.md) |
+| Lab 1 | [Building a web application on Azure platform as a service offerings](Documentos/Mod01/04-Building_a_web_application_on_Azure_platform_as_a_service_offerings.md) |
 
