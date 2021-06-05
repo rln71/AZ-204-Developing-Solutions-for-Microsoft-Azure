@@ -30,22 +30,8 @@ This demo shows you how to deploy your app to Azure App Service from a local Git
 
    Borro la carpeta *.git* para romper el enlace con el repositorio remoto original y quedarme sólo con el *backup* del contenido. Más adelante sincronizaré este directorio local con un repositorio remoto en *Azure*.
 
-   Ese nuevo repositorio en *GitHub* de mi propiedad es el que emplearé para desplegar la *webapp* en *Azure*. Y podré sincronizarlo con un *.git* local para efectuar en local todos los cambios que considere.
-
    
 
-   Desde *gitbash* me sitúo dentro de mi carpeta local y escribo los comandos para inicializar un repositorio local *.git*, asignar el nombre *main* a la rama principal de ese *.git* local, sincronizar mi repositorio *.git* local con el repositorio remoto - que por defecto se llama **origin** - y se ubica en la *URL* que facilito, hacer el primer *commit* y subir los cambios con *push* al repositorio remoto **origin** desde la rama **main** de mi repositorio local.
-
-   ```
-   git init
-   git branch -M main
-   git remote add origin https://github.com/rln71/DeployWebAppAzureByGIT.git
-   git commit -m "First Commit"
-   git push -u origin main
-   ```
-
-   Ahora puedo modificar los ficheros en local y actualizarlos en el repositorio remoto con `push`.
-   
 2. Launch the Azure Cloud Shell and be sure to select the **Bash** environment.
 
    - You can either launch the Cloud Shell through the portal (https://portal.azure.com), or by launching the shell directly (https://shell.azure.com).
@@ -165,7 +151,6 @@ The first two steps in this section are performed in the Cloud Shell, the third 
    ![P03-CreateWebAppByGit_01](images/P03-CreateWebAppByGit_14b.png)
    
    
-   
 
 ##### What happens to my app during deployment?
 
@@ -181,27 +166,10 @@ In the Azure Portal navigate to the web app you created above:
 
 1. In the **Overview** section select the **URL** to verify the app was deployed successfully.
 
-   ![P03-CreateWebAppByGit_01](images/P03-CreateWebAppByGit_14.png)
-
-   
-
-   ![P03-CreateWebAppByGit_01](images/P03-CreateWebAppByGit_15.png)
-
-   
-
 2. Select **Deployment Center** to view deployment information.
 
-   ![P03-CreateWebAppByGit_01](images/P03-CreateWebAppByGit_16.png)
-
-   
 
 From here you can make change to the code in the local repository and push the change to the web app.
-
-He modificado el fichero ...
-
-Y desde el gitbash he hecho el push...
-
-
 
 #### Clean up resources
 

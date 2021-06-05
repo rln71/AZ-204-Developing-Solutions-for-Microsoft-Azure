@@ -82,7 +82,7 @@ Create a static HTML web app by using Azure Cloud Shell
 
    #### Update and redeploy the app
 
-   1. In the Cloud Shell, type nano index.html to open the nano text editor. In the <h1> heading tag, change “Azure App Service - Sample Static HTML Site” to "Azure App Service".
+   1. In the Cloud Shell, type nano index.html to open the nano text editor. In the h1 heading tag, change “Azure App Service - Sample Static HTML Site” to "Azure App Service".
 
    2. Use the commands **^O** to save and **^X** to exit.
 
