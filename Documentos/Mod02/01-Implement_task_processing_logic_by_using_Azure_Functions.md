@@ -65,7 +65,10 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     > **Note**: Wait for Azure to finish creating the storage account before you move forward with the lab. You'll receive a notification when the account is created.
 1. Open the **Access Keys** section of your newly created storage account instance.
 1. Record the value of the **Connection string** text box.
+   
     > **Note**: You'll use this value later in the lab. It doesn't matter which connection string you choose. They are interchangeable.
+
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_01](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_01.png)
 
 #### Task 3: Create a function app
 
@@ -82,6 +85,8 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     - Enable Application Insights: **Yes**
     > **Note**: Wait for Azure to finish creating the function app before you move forward with the lab. You'll receive a notification when the app is created.
 
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_02](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_02.png)
+
 > **Review**: In this exercise, you created all the resources that you'll use for this lab.
 
 ### Exercise 2: Configure local Azure Functions project
@@ -94,11 +99,17 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     ```powershell
     cd F:\Allfiles\Labs\02\Starter\func
     ```
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_03](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_03.png)
 
 1. Use the **Azure Functions Core Tools** to create a new local Azure Functions project with the following details:
     - worker runtime: **dotnet**
     > **Note**: You can review the documentation to [create a new project][azure-functions-core-tools-new-project] using the **Azure Functions Core Tools**.
-1. Close the currently running **Windows Terminal** application.
+
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_04](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_04.png)
+
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_05](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_05.png)
+
+Close the currently running **Windows Terminal** application.
 
 #### Task 2: Configure connection string
 
@@ -116,6 +127,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     ```powershell
     dotnet build
     ```
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_06](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_06.png)
 
 1. Close the currently running **Windows Terminal** application.
 
@@ -132,6 +144,8 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     - name: **Echo**
     > **Note**: You can review the documentation to [create a new function][azure-functions-core-tools-new-function] using the **Azure Functions Core Tools**.
 1. Close the currently running **Windows Terminal** application.
+
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_08](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_08.png)
 
 #### Task 2: Write HTTP-triggered function code
 
@@ -198,20 +212,32 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
 1. **Save** the **Echo.cs** file.
 
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_09](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_09.png)
+
 #### Task 3: Test the HTTP-triggered function by using httprepl
 
 1. Open the **Windows Terminal** application.
+
 1. Change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\02\\Starter\\func** project directory.
+
 1. Start the function app project:
+   
     > **Note**: You can review the documentation to [start the function app project locally][azure-functions-core-tools-start-function] using the **Azure Functions Core Tools**.
+    
+    ![P02-Implement_task_processing_logic_by_using_Azure_Functions_10](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_10.png)
+    
 1. Open a new instance of the **Windows Terminal** application.
+
 1. Start the **httprepl** tool, and then set the base Uniform Resource Identifier (URI) to ``http://localhost:7071``:
 
+    > Antes tuve que instalar la herramienta **httprepl**. Se puede instalar con comandos desde la propia terminal.
+    
     ```powershell
     httprepl http://localhost:7071
     ```
-
+    
     > **Note**: An error message is displayed by the httprepl tool. This message occurs because the tool is searching for a Swagger definition file to use to "traverse" the API. Because your functio projectp does not produce a Swagger definition file, you'll need to traverse the API manually.
+    
 1. When you receive the tool prompt, browse to the relative **api/echo** directory:
 
     ```powershell
@@ -230,6 +256,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     ```powershell
     post --content 5
     ```
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_11](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_11.png)
 
 1. Run the **post** command sending in an HTTP request body set to a string value of **"Hello"** by using the **\-\-content** option:
 
@@ -242,6 +269,9 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     ```powershell
     post --content "{"msg": "Successful"}"
     ```
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_12](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_12.png)
+
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_13](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_13.png)
 
 1. Exit the **httprepl** application:
 
@@ -265,6 +295,10 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     > **Note**: You can review the documentation to [create a new function][azure-functions-core-tools-new-function] using the **Azure Functions Core Tools**.
 1. Close the currently running **Windows Terminal** application.
 
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_14](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_14.png)
+
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_15](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_15.png)
+
 #### Task 2: Observe function code
 
 1. Open **Visual Studio Code**.
@@ -277,7 +311,7 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Host;
     using Microsoft.Extensions.Logging;
-
+    
     namespace func
     {
         public static class Recurring
@@ -290,12 +324,14 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
         }
     }
     ```
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_16](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_16.png)
 
 #### Task 3: Observe function runs
 
 1. Open the **Windows Terminal** application.
 1. Change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\02\\Starter\\func** project directory.
 1. Start the function app project:
+   
     > **Note**: You can review the documentation to [start the function app project locally][azure-functions-core-tools-start-function] using the **Azure Functions Core Tools**.
 1. Observe the function run that occurs about every five minutes. Each function run should render a simple message to the log.
 1. Close the currently running **Windows Terminal** application.
@@ -319,11 +355,14 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 1. Open the **Windows Terminal** application.
 1. Change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\02\\Starter\\func** project directory.
 1. Start the function app project:
+   
     > **Note**: You can review the documentation to [start the function app project locally][azure-functions-core-tools-start-function] using the **Azure Functions Core Tools**.
 1. Observe the function run that occurs about every thirty seconds. Each function run should render a simple message to the log.
 1. Close the currently running **Windows Terminal** application.
 
 > **Review**: In this exercise, you created a function that runs automatically based on a fixed schedule.
+
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_17](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_17.png)
 
 ### Exercise 5: Create a function that integrates with other services
 
@@ -335,7 +374,10 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     - Public access level: **Private (no anonymous access)**
 1. Select the recently created **content** container.
 1. In the **content** container, select **Upload** to upload the **settings.json** file in the **Allfiles (F): \\Allfiles\\Labs\\02\\Starter** folder on your lab VM.
+   
     > **Note**: You should enable the **Overwrite if files already exist** option.
+
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_18](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_18.png)
 
 #### Task 2: Create an HTTP-triggered function
 
@@ -439,11 +481,15 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 
 1. Close all currently running instances of the **Windows Terminal** application.
 
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_19](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_19.png)
+
+
 #### Task 5: Test the function by using httprepl
 
 1. Open the **Windows Terminal** application.
 1. Change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\02\\Starter\\func** project directory.
 1. Start the function app project:
+   
     > **Note**: You can review the documentation to [start the function app project locally][azure-functions-core-tools-start-function] using the **Azure Functions Core Tools**.
 1. Open a new instance of the **Windows Terminal** application.
 1. Start the **httprepl** tool, and then set the base URI to ``http://localhost:7071``:
@@ -468,6 +514,10 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
     ```
 
 1. Observe the JSON content of the response from the function app.
+
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_20](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_20.png)
+
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_21](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_21.png)
 
 1. Exit the **httprepl** application:
 
@@ -501,17 +551,25 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 1. Wait for the deployment to finalize before you move forward with the lab.
 1. Close the currently running **Windows Terminal** application.
 
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_22](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_22.png)
+
+
 #### Task 2: Validate deployment
 
 1. Sign in to the Azure portal (<https://portal.azure.com>).
 1. Access the **funclogic[yourname]** function app that you created earlier in this lab.
 1. From the **App Service** blade, locate and open the **Functions** section, then locate and open the **GetSettingInfo** function.
+
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_23](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_23.png)
+
 1. In the **Function** blade, select the **Code + Test** option from the **Developer** section.
 1. In the function editor, select **Test/Run**.
 1. In the popup dialog that appears, perform the following actions:
     - In the **HTTP method** list, select **GET**.
 1. Select **Run** to test the function.
 1. Observe the results of the test run. the JSON content should be the same as the **settings.json** file.
+
+![P02-Implement_task_processing_logic_by_using_Azure_Functions_24](images/P02-Implement_task_processing_logic_by_using_Azure_Functions_24.png)
 
 > **Review**: In this exercise, you deployed a local function project to Azure Functions and validated that the functions work in Azure.
 
