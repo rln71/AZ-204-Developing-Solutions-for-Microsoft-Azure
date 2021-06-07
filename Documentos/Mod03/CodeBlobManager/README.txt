@@ -1,0 +1,1 @@
+Esta carpeta es el proyecto de VisualCode para el laboratorio.

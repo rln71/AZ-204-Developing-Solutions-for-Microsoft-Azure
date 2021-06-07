@@ -16,3 +16,8 @@ Registro de evidencias. Click en el título de cada práctica para visitar su p�
 | Demo 1 | [Create an HTTP trigger function by using the Azure portal](Documentos/Mod02/01demo-Create_an_HTTP_trigger_function_by_using_the_Azure_portal.md) |
 | Lab 1 | [Implement task processing logic by using Azure Functions](Documentos/Mod02/02lab-Implement_task_processing_logic_by_using_Azure_Functions.md) |
 
+### Module 3 Develop solutions that use blob storage
+| Tipo  | Descripción                                |
+| ----- | ------------------------------------------ |
+| Lab 1 | [Retrieving Azure Storage resources and metadata by using the Azure Storage SDK for .NET](Documentos/Mod03/Lab03-Retrieving_Azure_Storage_resources_and_metadata_by_using_the_Azure_Storage_SDK_for_NET.md) |](Documentos/Mod03/Lab03-Retrieving_Azure_Storage_resources_and_metadata_by_using_the_Azure_Storage_SDK_for_NET.md) |
+
