@@ -21,3 +21,9 @@ Registro de evidencias. Click en el título de cada práctica para visitar su p�
 | ----- | ------------------------------------------ |
 | Lab 1 | [Retrieving Azure Storage resources and metadata by using the Azure Storage SDK for .NET](Documentos/Mod03/Lab03-Retrieving_Azure_Storage_resources_and_metadata_by_using_the_Azure_Storage_SDK_for_NET.md) |](Documentos/Mod03/Lab03-Retrieving_Azure_Storage_resources_and_metadata_by_using_the_Azure_Storage_SDK_for_NET.md) |
 
+### Module4 Develop solutions that use Cosmos DB storage
+| Tipo  | Descripción                                |
+| ----- | ------------------------------------------ |
+| Demo 1 | [Create Azure Cosmos DB resources by using the Azure Portal](Documentos/Mod04/P01-Demo-CreateCosmosDBbyAzurePortal.md) |
+| Demo 2 | [Working with Azure Cosmos DB by using .NET](Documentos/Mod04/P02-Demo-WorkingwithCosmosDBbyNET.md) |
+| Lab 1 | [Constructing a polyglot data solution](Documentos/Mod04/P02-Demo-WorkingwithCosmosDBbyNET.md) |
