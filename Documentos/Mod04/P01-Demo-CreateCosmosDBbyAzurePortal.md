@@ -70,7 +70,7 @@ Add data to your new database using Data Explorer.
 2. Add the following structure to the document on the right side of the **Documents** pane:
 
    ```
-{
+   {
        "id": "1",
        "category": "personal",
        "name": "groceries",
@@ -78,8 +78,11 @@ Add data to your new database using Data Explorer.
        "isComplete": false
    }
    ```
+
    
+
    ![P01-Demo-CreateAzureCosmosDBbyAzurePortal_06](images/P01-Demo-CreateAzureCosmosDBbyAzurePortal_06.png)
+
 
 3. Select **Save**.
 
