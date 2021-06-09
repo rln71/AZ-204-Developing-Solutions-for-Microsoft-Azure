@@ -1,0 +1,9 @@
+E:\H\CursoWEBCLOUDMSFT\MisPracticas\AZ204\Documentos\Mod04\AdventureWorks\AdventureWorks.Models\bin\Debug\netstandard2.1\AdventureWorks.Models.deps.json
+E:\H\CursoWEBCLOUDMSFT\MisPracticas\AZ204\Documentos\Mod04\AdventureWorks\AdventureWorks.Models\bin\Debug\netstandard2.1\AdventureWorks.Models.dll
+E:\H\CursoWEBCLOUDMSFT\MisPracticas\AZ204\Documentos\Mod04\AdventureWorks\AdventureWorks.Models\bin\Debug\netstandard2.1\AdventureWorks.Models.pdb
+E:\H\CursoWEBCLOUDMSFT\MisPracticas\AZ204\Documentos\Mod04\AdventureWorks\AdventureWorks.Models\obj\Debug\netstandard2.1\AdventureWorks.Models.csprojAssemblyReference.cache
+E:\H\CursoWEBCLOUDMSFT\MisPracticas\AZ204\Documentos\Mod04\AdventureWorks\AdventureWorks.Models\obj\Debug\netstandard2.1\AdventureWorks.Models.AssemblyInfoInputs.cache
+E:\H\CursoWEBCLOUDMSFT\MisPracticas\AZ204\Documentos\Mod04\AdventureWorks\AdventureWorks.Models\obj\Debug\netstandard2.1\AdventureWorks.Models.AssemblyInfo.cs
+E:\H\CursoWEBCLOUDMSFT\MisPracticas\AZ204\Documentos\Mod04\AdventureWorks\AdventureWorks.Models\obj\Debug\netstandard2.1\AdventureWorks.Models.csproj.CoreCompileInputs.cache
+E:\H\CursoWEBCLOUDMSFT\MisPracticas\AZ204\Documentos\Mod04\AdventureWorks\AdventureWorks.Models\obj\Debug\netstandard2.1\AdventureWorks.Models.dll
+E:\H\CursoWEBCLOUDMSFT\MisPracticas\AZ204\Documentos\Mod04\AdventureWorks\AdventureWorks.Models\obj\Debug\netstandard2.1\AdventureWorks.Models.pdb
