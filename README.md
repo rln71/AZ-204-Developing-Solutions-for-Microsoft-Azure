@@ -26,4 +26,4 @@ Registro de evidencias. Click en el título de cada práctica para visitar su p�
 | ----- | ------------------------------------------ |
 | Demo 1 | [Create Azure Cosmos DB resources by using the Azure Portal](Documentos/Mod04/P01-Demo-CreateCosmosDBbyAzurePortal.md) |
 | Demo 2 | [Working with Azure Cosmos DB by using .NET](Documentos/Mod04/P02-Demo-WorkingwithCosmosDBbyNET.md) |
-| Lab 1 | [Constructing a polyglot data solution](Documentos/Mod04/P02-Demo-WorkingwithCosmosDBbyNET.md) |
+| Lab 1 | [Constructing a polyglot data solution](Documentos/Mod04/P03-Lab-ConstructingPolyglotDataSolution.md) |
