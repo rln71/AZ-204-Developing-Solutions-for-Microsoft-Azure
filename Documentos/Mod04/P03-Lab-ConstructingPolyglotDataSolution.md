@@ -60,11 +60,13 @@ You have been assigned the task of updating your company's existing retail web a
 
     1.  Select **Next: Networking**.
 
-1.  From the **Networking** tab, perform the following actions:
+1. From the **Networking** tab, perform the following actions:
 
-    1.  In the **Allow Azure services and resources to access this server** section, select **Yes**.
-    
-    1.  Select **Review + Create**.
+   > **Atención**: La siguiente propiedad es FUNDAMENTAL asignarla a Yes para que el servidor sea accesible.
+
+   1.  In the **Allow Azure services and resources to access this server** section, select **Yes**.
+
+   1.  Select **Review + Create**.
 
 1.  From the **Review + Create** tab, review the options that you selected during the previous steps.
 

@@ -13,16 +13,13 @@ namespace AdventureWorks.Migrate
     {
         private const string sqlDBConnectionString = "Server=tcp:polysqlsrvrroman.database.windows.net,1433;Initial Catalog=AdventureWorks;Persist Security Info=False;User ID=testuser;Password=TestPa55w.rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         private const string cosmosDBConnectionString = "AccountEndpoint=https://polycosmosroman.documents.azure.com:443/;AccountKey=EaCfUfWnUKMWviASdcxUy0817mf7hWXedBTY2PfRCkaKd4vSknsNf4SJdFlwRxNqExwtVQ1doFEVO4zHUVnWQw==;";
-
         public static async Task Main(string[] args)
         {
             await Console.Out.WriteLineAsync("Start Migration");
 
             using AdventureWorksSqlContext context = new AdventureWorksSqlContext(sqlDBConnectionString);
 
-            List<Model> items = await context.Models
-            .Include(m => m.Products)
-            .ToListAsync<Model>();
+            List<Model> items = await context.Models.Include(m => m.Products).ToListAsync<Model>();
 
             await Console.Out.WriteLineAsync($"Total Azure SQL DB Records: {items.Count}");
 
@@ -41,7 +38,7 @@ namespace AdventureWorks.Migrate
                 ItemResponse<Model> document = await container.UpsertItemAsync<Model>(item);
                 await Console.Out.WriteLineAsync($"Upserted document #{++count:000} [Activity Id: {document.ActivityId}]");
             }
-            
+
             await Console.Out.WriteLineAsync($"Total Azure Cosmos DB Documents: {count}");
         }
     }
