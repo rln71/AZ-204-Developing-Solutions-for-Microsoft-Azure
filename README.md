@@ -32,3 +32,9 @@ Registro de evidencias. Click en el título de cada práctica para visitar su p�
 | Tipo  | Descripción                                |
 | ----- | ------------------------------------------ |
 | Lab | [Deploying compute workloads by using images and containers](Documentos/Mod05/Lab-DeployingByImagesAndContainers.md) |
+
+### Module 6 Implement user authentication and authorization
+| Tipo  | Descripción                                |
+| ----- | ------------------------------------------ |
+| Lab | [Authenticating to and querying Microsoft Graph by using MSAL and .NET SDKs](Documentos/Mod06/Lab-AuthenticatingGraphUsingMSALandNET.md) |
+
