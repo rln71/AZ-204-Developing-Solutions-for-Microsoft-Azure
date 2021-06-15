@@ -38,3 +38,8 @@ Registro de evidencias. Click en el título de cada práctica para visitar su p�
 | ----- | ------------------------------------------ |
 | Lab | [Authenticating to and querying Microsoft Graph by using MSAL and .NET SDKs](Documentos/Mod06/Lab-AuthenticatingGraphUsingMSALandNET.md) |
 
+### Module 8 Implement API Management
+| Tipo  | Descripción                                |
+| ----- | ------------------------------------------ |
+| Lab | [Creating a multi-tier solution by using services in Azure](Documentos/Mod08/Lab-CreatingMultitierSolutionByServices.md) |
+
