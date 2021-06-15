@@ -8,11 +8,23 @@ lab:
 ---
 
 # Lab 04: Constructing a polyglot data solution
-## Lab scenario
+## Escenario de laboratorio
 
-You have been assigned the task of updating your company's existing retail web application to use more than one data service in Microsoft Azure. Your company's goal is to take advantage of the best data service for each application component. After conducting thorough research, you decide to migrate your inventory database from Azure SQL Database to Azure Cosmos DB.
+Se le ha asignado la tarea de actualizar la aplicación web minorista existente de su empresa para utilizar más de un servicio de datos en Microsoft Azure. El objetivo de su empresa es aprovechar el mejor servicio de datos para cada componente de la aplicación. Después de realizar una investigación exhaustiva, decide migrar su base de datos de inventario de Azure SQL Database a Azure Cosmos DB.
 
-### Exercise 1: Creating database resources in Azure
+## Objetivos
+
+Después de completar esta práctica de laboratorio, podrá:
+
+- Cree instancias de varios servicios de base de datos mediante Azure Portal.
+
+- Escriba el código C# para conectarse a la base de datos SQL.
+
+- Escriba código C# para conectarse a Azure Cosmos DB.
+
+## Arquitectura
+
+![](images/Architecture.png)Exercise 1: Creating database resources in Azure
 
 #### Task 1: Open the Azure portal
 

@@ -1,19 +1,23 @@
 # Lab 01: Building a web application on Azure platform as a service offerings
 # Student lab manual
 
-## Lab scenario
+- ## Escenario de laboratorio
 
-You're the owner of a startup organization and have been building an image gallery application for people to share great images of food. To get your product to market as quickly as possible, you decided to use Microsoft Azure App Service to host your web apps and APIs.
+  Eres el propietario de una startup y has estado creando una aplicación de galería de imágenes para que las personas compartan excelentes imágenes de comida. Para llevar su producto al mercado lo más rápido posible, ha decididó utilizar Microsoft Azure App Service para alojar sus aplicaciones web y API Rest.
 
-## Objectives
+  ### Objetivos
 
-After you complete this lab, you will be able to:
+  Después de completar esta práctica de laboratorio, podrá:
 
--   Create various apps by using App Service.
+  - Cree varias aplicaciones utilizando App Service.
 
--   Configure application settings for an app.
+  - Configure los ajustes de la aplicación para una aplicación2.
 
--   Deploy apps by using Kudu, the Azure Command-Line Interface (CLI), and zip file deployment.
+  - Implemente aplicaciones mediante Kudu, la interfaz de línea de comandos (CLI) de Azure y la implementación de archivos zip.
+
+  ## Arquitectura
+
+  ![Architecture](images/Architecture.png)
 
 ### Exercise 1: Build a back-end API by using Azure Storage and the Web Apps feature of Azure App Service
 
