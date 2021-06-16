@@ -48,3 +48,22 @@ Registro de evidencias. Click en el título de cada práctica para visitar su p�
 | ----- | ------------------------------------------ |
 | Lab | [Creating a multi-tier solution by using services in Azure](Documentos/Mod08/Lab-CreatingMultitierSolutionByServices.md) |
 
+### Module 9 Develop event-based solutions
+| Tipo  | Descripción                                |
+| ----- | ------------------------------------------ |
+| Lab | [Publishing and subscribing to Event Grid events](Documentos/Mod09/Lab-PublishingSubscribingEventGridEvents.md) |
+
+### Module 10 Develop message-based solutions (pendiente)
+| Tipo  | Descripción                                |
+| ----- | ------------------------------------------ |
+| Lab | [Asynchronously processing messages by using Azure Storage Queues](Documentos/Mod10/Lab-AsynchronouslyMessagesByQueues.md) |
+
+### Module 11 Monitor and optimize Azure solutions (pendiente)
+| Tipo  | Descripción                                |
+| ----- | ------------------------------------------ |
+| Lab | [Monitoring services that are deployed to Azure](Documentos/Mod11/Lab-MonitoringServicesDeployed.md) |
+
+### Module 12 Integrate caching and content delivery within solutions (pendiente)
+| Tipo  | Descripción                                |
+| ----- | ------------------------------------------ |
+| Lab | [Enhancing a web application by using the Azure Content Delivery Network](Documentos/Mod12/Lab-EnhancingWebAppByDeliveryNetwork.md) |
