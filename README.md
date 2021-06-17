@@ -1,6 +1,6 @@
 # AZ-204 Developing Solutions for Microsoft Azure 
 
-Registro de evidencias. Click en el título de cada práctica para visitar su página de detalle con todas las capturas de la práctica.
+Registro de evidencias del curso AZ-204. Click en el título de cada práctica para visitar su página de detalle con todas las capturas de la práctica.
 
 ### Module 1 Creating Azure App Service Web Apps
 | Tipo  | Descripción                                |
@@ -53,17 +53,17 @@ Registro de evidencias. Click en el título de cada práctica para visitar su p�
 | ----- | ------------------------------------------ |
 | Lab | [Publishing and subscribing to Event Grid events](Documentos/Mod09/Lab-PublishingSubscribingEventGridEvents.md) |
 
-### Module 10 Develop message-based solutions (pendiente)
+### Module 10 Develop message-based solutions
 | Tipo  | Descripción                                |
 | ----- | ------------------------------------------ |
 | Lab | [Asynchronously processing messages by using Azure Storage Queues](Documentos/Mod10/Lab-AsynchronouslyMessagesByQueues.md) |
 
-### Module 11 Monitor and optimize Azure solutions (pendiente)
+### <span style="color:lightgray"> Module 11 Monitor and optimize Azure solutions (pendiente)</span>
 | Tipo  | Descripción                                |
 | ----- | ------------------------------------------ |
 | Lab | [Monitoring services that are deployed to Azure](Documentos/Mod11/Lab-MonitoringServicesDeployed.md) |
 
-### Module 12 Integrate caching and content delivery within solutions (pendiente)
+### <span style="color:lightgray"> Module 12 Integrate caching and content delivery within solutions (pendiente)</span>
 | Tipo  | Descripción                                |
 | ----- | ------------------------------------------ |
 | Lab | [Enhancing a web application by using the Azure Content Delivery Network](Documentos/Mod12/Lab-EnhancingWebAppByDeliveryNetwork.md) |

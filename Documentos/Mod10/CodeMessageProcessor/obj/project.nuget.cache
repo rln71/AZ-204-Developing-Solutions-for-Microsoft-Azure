@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "VGRYm5ncjsZmdFaJyoW0sVlwvruhhqypXdxmnr/h4FRKixMfrcc1lrpiIZpT117Gmokmzt6LdMc2q8ygjIb+Hw==",
+  "success": true,
+  "projectFilePath": "E:\\H\\CursoWEBCLOUDMSFT\\MisPracticas\\AZ204\\Documentos\\Mod10\\CodeMessageProcessor\\CodeMessageProcessor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\roman\\.nuget\\packages\\azure.core\\1.15.0\\azure.core.1.15.0.nupkg.sha512",
+    "C:\\Users\\roman\\.nuget\\packages\\azure.storage.common\\12.8.0\\azure.storage.common.12.8.0.nupkg.sha512",
+    "C:\\Users\\roman\\.nuget\\packages\\azure.storage.queues\\12.7.0\\azure.storage.queues.12.7.0.nupkg.sha512",
+    "C:\\Users\\roman\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.0.0\\microsoft.bcl.asyncinterfaces.1.0.0.nupkg.sha512",
+    "C:\\Users\\roman\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\roman\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.6.0\\system.diagnostics.diagnosticsource.4.6.0.nupkg.sha512",
+    "C:\\Users\\roman\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\roman\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\roman\\.nuget\\packages\\system.text.encodings.web\\4.7.2\\system.text.encodings.web.4.7.2.nupkg.sha512",
+    "C:\\Users\\roman\\.nuget\\packages\\system.text.json\\4.6.0\\system.text.json.4.6.0.nupkg.sha512",
+    "C:\\Users\\roman\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.2\\system.threading.tasks.extensions.4.5.2.nupkg.sha512"
+  ],
+  "logs": []
+}
