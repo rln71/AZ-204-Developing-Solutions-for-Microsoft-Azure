@@ -58,7 +58,7 @@ Registro de evidencias del curso AZ-204. Click en el título de cada práctica p
 | ----- | ------------------------------------------ |
 | Lab | [Asynchronously processing messages by using Azure Storage Queues](Documentos/Mod10/Lab-AsynchronouslyMessagesByQueues.md) |
 
-### <span style="color:lightgray"> Module 11 Monitor and optimize Azure solutions (pendiente)</span>
+### Module 11 Monitor and optimize Azure solutions
 | Tipo  | Descripción                                |
 | ----- | ------------------------------------------ |
 | Lab | [Monitoring services that are deployed to Azure](Documentos/Mod11/Lab-MonitoringServicesDeployed.md) |
