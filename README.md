@@ -63,7 +63,7 @@ Registro de evidencias del curso AZ-204. Click en el título de cada práctica p
 | ----- | ------------------------------------------ |
 | Lab | [Monitoring services that are deployed to Azure](Documentos/Mod11/Lab-MonitoringServicesDeployed.md) |
 
-### <span style="color:lightgray"> Module 12 Integrate caching and content delivery within solutions (pendiente)</span>
+### Module 12 Integrate caching and content delivery within solutions
 | Tipo  | Descripción                                |
 | ----- | ------------------------------------------ |
 | Lab | [Enhancing a web application by using the Azure Content Delivery Network](Documentos/Mod12/Lab-EnhancingWebAppByDeliveryNetwork.md) |

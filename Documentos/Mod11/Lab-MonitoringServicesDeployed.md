@@ -90,7 +90,7 @@ Después de completar esta práctica de laboratorio, podrá:
 
 1. From the **Marketplace** search results blade, select the **Web App** result.
 
-   > El término actualizado es <mark>**App Services**</mark> en vez de **Web App**.
+   > Se utilizan los términos <mark>**App Services**</mark> y **Web App** indistintamente.
 
 1.  From the **Web App** blade, select **Create**.
 

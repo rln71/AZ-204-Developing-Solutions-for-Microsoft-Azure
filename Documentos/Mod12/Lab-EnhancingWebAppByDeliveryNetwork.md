@@ -1,10 +1,3 @@
----
-lab:
-    az204Title: 'Lab 12: Enhancing a web application by using the Azure Content Delivery Network'
-    az204Module: 'Module 12: Integrate caching and content delivery within solutions'
-    type: 'Answer Key'
----
-
 # Lab 12: Enhancing a web application by using the Azure Content Delivery Network
 ## Escenario de laboratorio
 
@@ -56,27 +49,32 @@ Después de completar esta práctica de laboratorio, podrá:
 
 1.  On the **Basics** tab, perform the following actions:
     
-    1.  Leave the **Subscription** text box set to its default value.
+    1. Leave the **Subscription** text box set to its default value.
 
-    1.  In the **Resource group** section, select **Create new**, enter **MarketingContent**, and then select **OK**.
+    1. In the **Resource group** section, select **Create new**, enter **MarketingContent**, and then select **OK**.
 
-    1.  In the **Storage account name** text box, enter **contenthost*[yourname]***.
+    1. In the **Storage account name** text box, enter **contenthost*[yourname]***.
 
-    1.  In the **Location** drop-down list, select the **(US) East US** region.
+    1. In the **Location** drop-down list, select the **(US) East US** region.
 
-    1.  In the **Performance** section, select **Standard**.
+    1. In the **Performance** section, select **Standard**.
 
-    1.  In the **Account kind** drop-down list, select **StorageV2 (general purpose v2)**.
+    1. In the **Account kind** drop-down list, select **StorageV2 (general purpose v2)**.
 
-    1.  In the **Replication** drop-down list, select **Read-access geo-redundant storage (RA-GRS)**.
+    1. In the **Replication** drop-down list, select **Read-access geo-redundant storage (RA-GRS)**.
 
-    1.  Select **Review + Create**.
+    1. Select **Review + Create**.
 
+       ![](images/Lab-EnhancingWebAppByDeliveryNetwork_01.png)
+    
 1.  On the **Review + Create** tab, review the options that you selected during the previous steps.
 
 1.  Select **Create** to create the storage account by using your specified configuration. 
 
     > **Note**: Wait for the creation task to complete before you move forward with this lab.
+
+![](images/Lab-EnhancingWebAppByDeliveryNetwork_02.png)
+
 #### Task 3: Create a web app by using Azure App Service
 
 1.  In the Azure portal's navigation pane, select **Create a resource**.
@@ -85,7 +83,9 @@ Después de completar esta práctica de laboratorio, podrá:
 
 1.  In the search box, enter **Web**, and then select Enter.
 
-1.  On the **Everything** search results blade, select the **Web App** result.
+1. On the **Everything** search results blade, select the **Web App** result.
+
+   ![](images/Lab-EnhancingWebAppByDeliveryNetwork_03.png)
 
 1.  On the **Web App** blade, select **Create**.
 
@@ -96,34 +96,28 @@ Después de completar esta práctica de laboratorio, podrá:
 1.  On the **Basics** tab, perform the following actions:
     
     1.  Leave the **Subscription** text box set to its default value.
-    
     1.  In the **Resource group** section, select **MarketingContent**.
-
     1.  In the **Name** text box, enter **landingpage*[yourname]***.
-
     1.  In the **Publish** section, select **Docker Container**.
-
     1.  In the **Operating System** section, select **Linux**.
-
     1.  In the **Region** drop-down list, select the **East US** region.
-
     1.  In the **Linux Plan (East US)** section, select **Create new**, enter the value **MarketingPlan** in the **Name** text box, and then select **OK**.
-
     1.  Leave the **SKU and size** section set to its default value.
-
     1.  Select **Next: Docker**.
 
-1.  On the **Docker** tab, perform the following actions:
+1. On the **Docker** tab, perform the following actions:
 
-    1.  In the **Options** drop-down list, select **Single Container**.
+   1. In the **Options** drop-down list, select **Single Container**.
 
-    1.  In the **Image Source** drop-down list, select **Docker Hub**.
+   1. In the **Image Source** drop-down list, select **Docker Hub**.
 
-    1.  In the **Access Type** drop-down list, select **Public**.
+   1. In the **Access Type** drop-down list, select **Public**.
 
-    1.  In the **Image and tag** text box, enter **microsoftlearning/edx-html-landing-page:latest**.
+   1. In the **Image and tag** text box, enter **microsoftlearning/edx-html-landing-page:latest**.
 
-    1.  Select **Review + Create**.
+      > En la página de *dockerhub* se puede buscar el docker anterior por el término **edx-html-landing-page**.
+
+   1.  Select **Review + Create**.
 
 1.  On the **Review + Create** tab, review the options that you selected during the previous steps.
 
@@ -140,6 +134,8 @@ Después de completar esta práctica de laboratorio, podrá:
 1.  On the **App Service** blade, in the **Settings** category, select the **Properties** link.
 
 1.  In the **Properties** section, record the value of the **URL** text box. You'll use this value later in the lab.
+
+![](images/Lab-EnhancingWebAppByDeliveryNetwork_04.png)
 
 #### Review
 
@@ -167,47 +163,55 @@ In this exercise, you created an Azure Storage account and an Azure Web App that
 
 #### Task 2: Register the Microsoft.CDN provider
 
-1.  At the **Cloud Shell** command prompt in the portal, perform the following actions:
+1. At the **Cloud Shell** command prompt in the portal, perform the following actions:
 
-    1.  Enter the following command, and then select Enter to get a list of subgroups and commands at the root level of the Azure CLI:
+   1.  Enter the following command, and then select Enter to get a list of subgroups and commands at the root level of the Azure CLI:
 
-        ```
-        az --help
-        ```
+       ```
+       az --help
+       ```
 
-    1.  Enter the following command, and then select Enter to get a list of the commands that are available for resource providers:
+   1.  Enter the following command, and then select Enter to get a list of the commands that are available for resource providers:
 
-        ```
-        az provider --help
-        ```
+       ```
+       az provider --help
+       ```
 
-    1.  Enter the following command, and then select Enter to list all currently registered providers:
+   1.  Enter the following command, and then select Enter to list all currently registered providers:
 
-        ```
-        az provider list
-        ```
+       ```
+       az provider list
+       ```
 
-    1.  Enter the following command, and then select Enter to list just the namespaces of the currently registered providers:
+   1.  Enter the following command, and then select Enter to list just the namespaces of the currently registered providers:
 
-        ```
-        az provider list --query "[].namespace"
-        ```
+       ```
+       az provider list --query "[].namespace"
+       ```
 
-    1.  Observe the list of currently registered providers. The **Microsoft.CDN** provider isn't currently in the list of providers.
+   1. Observe the list of currently registered providers. The **Microsoft.CDN** provider isn't currently in the list of providers.
 
-    1.  Enter the following command, and then select Enter to get the required flags to register a new provider:
+      > Desde el portal puede comprobar que el servicio **Microsoft.CDN** no lo tengo registrado.
 
-        ```
-        az provider register --help
-        ```
+      ![](images/Lab-EnhancingWebAppByDeliveryNetwork_05.png)
 
-    1.  Enter the following command, and then select Enter to register the **Microsoft.CDN** namespace with your current subscription:
+   1.  Enter the following command, and then select Enter to get the required flags to register a new provider:
 
-        ```
-        az provider register --namespace Microsoft.CDN
-        ```
+       ```
+       az provider register --help
+       ```
 
-1.  Close the Cloud Shell pane in the portal.
+   1.  Enter the following command, and then select Enter to register the **Microsoft.CDN** namespace with your current subscription:
+
+       ```
+       az provider register --namespace Microsoft.CDN
+       ```
+
+   ![](images/Lab-EnhancingWebAppByDeliveryNetwork_06.png)
+
+1. Close the Cloud Shell pane in the portal.
+
+   ![](images/Lab-EnhancingWebAppByDeliveryNetwork_07.png)
 
 #### Task 3: Create a Content Delivery Network profile
 
@@ -233,7 +237,7 @@ In this exercise, you created an Azure Storage account and an Azure Web App that
 
     1.  In the **Pricing tier** drop-down list, select **Standard Akamai**.
 
-    1.  Ensure that the **Create a new CDN endpoint now** check box is cleared.
+    1.  Ensure that the **Create a new CDN endpoint now** check box is <mark>cleared</mark>.
 
     1.  Select **Create**.
   
@@ -241,15 +245,15 @@ In this exercise, you created an Azure Storage account and an Azure Web App that
 
 #### Task 4: Configure Storage containers
 
-1.  In the Azure portal's navigation pane, select **Resource groups**.
+1. In the Azure portal's navigation pane, select **Resource groups**.
 
-1.  On the **Resource groups** blade, select the **MarketingContent** resource group that you created earlier in this lab.
+1. On the **Resource groups** blade, select the **MarketingContent** resource group that you created earlier in this lab.
 
-1.  On the **MarketingContent** blade, select the **contenthost*[yourname]*** storage account that you created earlier in this lab.
+1. On the **MarketingContent** blade, select the **contenthost*[yourname]*** storage account that you created earlier in this lab.
 
-1.  On the **Storage account** blade, select the **Containers** link in the **Blob service** section.
+1. On the **Storage account** blade, select the **Containers** link in the **Blob service** section.
 
-1.  In the **Containers** section, select **+ Container**.
+1. In the **Containers** section, select **+ Container**.
 
 1.  In the **New container** pop-up window, perform the following actions:
     
@@ -259,7 +263,7 @@ In this exercise, you created an Azure Storage account and an Azure Web App that
     
     1.  Select **Create**.
 
-1.  Back in the **Containers** section, select **+ Container** again.
+1. Back in the **Containers** section, select **+ Container** again.
 
 1.  In the **New container** pop-up window, perform the following actions:
     
@@ -269,75 +273,83 @@ In this exercise, you created an Azure Storage account and an Azure Web App that
     
     1.  Select **Create**.
 
-1.  Observe the updated list of containers.
+1. Observe the updated list of containers.
+
+   ![](images/Lab-EnhancingWebAppByDeliveryNetwork_08.png)
 
 #### Task 5: Create Content Delivery Network endpoints
 
-1.  In the Azure portal's navigation pane, select the **Resource groups** link.
+1. In the Azure portal's navigation pane, select the **Resource groups** link.
 
-1.  On the **Resource groups** blade, find and then select the **MarketingContent** resource group that you created earlier in this lab.
+1. On the **Resource groups** blade, find and then select the **MarketingContent** resource group that you created earlier in this lab.
 
-1.  On the **MarketingContent** blade, select the **contentdeliverynetwork** CDN profile that you created earlier in this lab.
+1. On the **MarketingContent** blade, select the **contentdeliverynetwork** CDN profile that you created earlier in this lab.
 
-1.  On the **CDN profile** blade, select **+ Endpoint**.
+1. On the **CDN profile** blade, select **+ Endpoint**.
+
+1. In the **Add an endpoint** pop-up dialog box, perform the following actions:
+
+   1. In the **Name** text box, enter **cdnmedia*[yourname]***.
+
+   1. In the **Origin type** drop-down list, select **Storage**.
+
+   1. In the **Origin hostname** drop-down list, select the **contenthost*[yourname]*.blob.core.windows.net** option for the Storage account that you created earlier in this lab.
+
+   1. In the **Origin path** text box, enter **/media**.
+
+   1. Leave the **Origin host header** text box set to its default value.
+
+   1. Leave the **Protocol** and **Origin port** sections set to their default values.
+
+   1. In the **Optimized for** drop-down list, select **General web delivery**.
+
+   1. Select **Add**.
+
+      ![](images/Lab-EnhancingWebAppByDeliveryNetwork_09.png)
+
+1. Back on the **CDN profile** blade, select **+ Endpoint** again.
+
+1. In the **Add an endpoint** pop-up dialog box, perform the following actions:
+
+   1. In the **Name** text box, enter **cdnvideo*[yourname]***.
+
+   1. In the **Origin type** drop-down list, select **Storage**.
+
+   1. In the **Origin hostname** drop-down list, select the **contenthost*[yourname]*.blob.core.windows.net** option for the Storage account that you created earlier in this lab.
+
+   1. In the **Origin path** text box, enter **/video**.
+
+   1. Leave the **Origin host header** text box set to its default value.
+
+   1. Leave the **Protocol** and **Origin port** sections set to their default values.
+
+   1. In the **Optimized for** drop-down list, select **Video on demand media streaming**.
+
+   1. Select **Add**.
+
+      ![](images/Lab-EnhancingWebAppByDeliveryNetwork_10.png)
+
+1. Back on the **CDN profile** blade, select **+ Endpoint** again.
 
 1.  In the **Add an endpoint** pop-up dialog box, perform the following actions:
 
-    1.  In the **Name** text box, enter **cdnmedia*[yourname]***.
+    1. In the **Name** text box, enter **cdnweb*[yourname]***.
 
-    1.  In the **Origin type** drop-down list, select **Storage**.
+    1. In the **Origin type** drop-down list, select **Web App**.
 
-    1.  In the **Origin hostname** drop-down list, select the **contenthost*[yourname]*.blob.core.windows.net** option for the Storage account that you created earlier in this lab.
+    1. In the **Origin hostname** drop-down list, select the **landingpage*[yourname]*.azurewebsites.net** option for the Web App that you created earlier in this lab.
 
-    1.  In the **Origin path** text box, enter **/media**.
+    1. Leave the **Origin path** text box set to its default value.
 
-    1.  Leave the **Origin host header** text box set to its default value.
+    1. Leave the **Origin host header** text box set to its default value.
 
-    1.  Leave the **Protocol** and **Origin port** sections set to their default values.
+    1. Leave the **Protocol** and **Origin port** sections set to their default values.
 
-    1.  In the **Optimized for** drop-down list, select **General web delivery**.
+    1. In the **Optimized for** drop-down list, select **General web delivery**.
 
-    1.  Select **Add**.
-
-1.  Back on the **CDN profile** blade, select **+ Endpoint** again.
-
-1.  In the **Add an endpoint** pop-up dialog box, perform the following actions:
-
-    1.  In the **Name** text box, enter **cdnvideo*[yourname]***.
-
-    1.  In the **Origin type** drop-down list, select **Storage**.
-
-    1.  In the **Origin hostname** drop-down list, select the **contenthost*[yourname]*.blob.core.windows.net** option for the Storage account that you created earlier in this lab.
-
-    1.  In the **Origin path** text box, enter **/video**.
-
-    1.  Leave the **Origin host header** text box set to its default value.
-
-    1.  Leave the **Protocol** and **Origin port** sections set to their default values.
-
-    1.  In the **Optimized for** drop-down list, select **Video on demand media streaming**.
-
-    1.  Select **Add**.
-
-1.  Back on the **CDN profile** blade, select **+ Endpoint** again.
-
-1.  In the **Add an endpoint** pop-up dialog box, perform the following actions:
-
-    1.  In the **Name** text box, enter **cdnweb*[yourname]***.
-
-    1.  In the **Origin type** drop-down list, select **Web App**.
-
-    1.  In the **Origin hostname** drop-down list, select the **landingpage*[yourname]*.azurewebsites.net** option for the Web App that you created earlier in this lab.
-
-    1.  Leave the **Origin path** text box set to its default value.
-
-    1.  Leave the **Origin host header** text box set to its default value.
-
-    1.  Leave the **Protocol** and **Origin port** sections set to their default values.
-
-    1.  In the **Optimized for** drop-down list, select **General web delivery**.
-
-    1.  Select **Add**.
+    1. Select **Add**.
+    
+       ![](images/Lab-EnhancingWebAppByDeliveryNetwork_25.png)
 
 #### Review
 
@@ -347,15 +359,17 @@ In this exercise, you registered the resource provider for Content Delivery Netw
 
 #### Task 1: Observe the landing page
 
-1.  In the Azure portal's navigation pane, select **Resource groups**.
+1. In the Azure portal's navigation pane, select **Resource groups**.
 
-1.  On the **Resource groups** blade, select the **MarketingContent** resource group that you created earlier in this lab.
+1. On the **Resource groups** blade, select the **MarketingContent** resource group that you created earlier in this lab.
 
-1.  On the **MarketingContent** blade, select the **landingpage*[yourname]*** web app that you created earlier in this lab.
+1. On the **MarketingContent** blade, select the **landingpage*[yourname]*** web app that you created earlier in this lab.
 
-1.  On the **App Service** blade, select **Browse**. A new browser window or tab will open and return the current website.
+1. On the **App Service** blade, select **Browse**. A new browser window or tab will open and return the current website.
 
-1.  Observe the error message displayed on the screen. The website won't work until you configure the specified settings to reference multimedia content.
+1. Observe the error message displayed on the screen. The website won't work until you configure the specified settings to reference multimedia content.
+
+   ![](images/Lab-EnhancingWebAppByDeliveryNetwork_11.png)
 
 1.  Return to your currently open browser window that's displaying the Azure portal.
 
@@ -389,6 +403,8 @@ In this exercise, you registered the resource provider for Content Delivery Netw
 
     > **Note**: Wait for the blob to upload before you continue with this lab.
 
+    ![](images/Lab-EnhancingWebAppByDeliveryNetwork_12.png)
+    
 1.  Back on the **Container** blade, select **Properties** in the **Settings** section.
 
 1.  Record the value in the **URL** text box. You will use this value later in the lab.
@@ -409,6 +425,8 @@ In this exercise, you registered the resource provider for Content Delivery Netw
 
     > **Note**: Wait for the blob to upload before you continue with this lab.
 
+    ![](images/Lab-EnhancingWebAppByDeliveryNetwork_13.png)
+    
 1.  Back on the **Container** blade, select **Properties** in the **Settings** section.
 
 1.  Record the value in the **URL** text box. You will use this value later in the lab.
@@ -425,25 +443,31 @@ In this exercise, you registered the resource provider for Content Delivery Netw
 
 1.  In the **Configuration** section, perform the following actions:
     
-    1.  Select the **Application settings** tab, and then select **New application setting**.
+    1. Select the **Application settings** tab, and then select **New application setting**.
     
-    1.  In the **Add/Edit application setting** pop-up window, in the **Name** text box, enter **CDNMediaEndpoint**.
+       ![](images/Lab-EnhancingWebAppByDeliveryNetwork_14.png)
     
-    1.  In the **Value** text box, enter the **URI** value of the **media** container in the **contenthost*[yourname]*** storage account that you recorded earlier in this lab.
+    1. In the **Add/Edit application setting** pop-up window, in the **Name** text box, enter **CDNMediaEndpoint**.
     
-    1.  Leave the **deployment slot setting** text box set to its default value, and then select **OK** to close the pop-up window.
+    1. In the **Value** text box, enter the **URI** value of the **media** container in the **contenthost*[yourname]*** storage account that you recorded earlier in this lab.
     
-    1.  Return to the **Configuration** section, and then select **New application setting**.
+    1. Leave the **deployment slot setting** text box set to its default value, and then select **OK** to close the pop-up window.
     
-    1.  In the **Add/Edit application setting** pop-up window, in the **Name** text box, enter **CDNVideoEndpoint**.
+       ![](images/Lab-EnhancingWebAppByDeliveryNetwork_15.png)
     
-    1.  In the **Value** text box, enter the **URI** value of the **video** container in the **contenthost*[yourname]*** storage account that you recorded earlier in this lab.
+    1. Return to the **Configuration** section, and then select **New application setting**.
     
-    1.  Leave the **deployment slot setting** text box set to its default value, and then select **OK** to close the pop-up window.
+    1. In the **Add/Edit application setting** pop-up window, in the **Name** text box, enter **CDNVideoEndpoint**.
+    
+    1. In the **Value** text box, enter the **URI** value of the **video** container in the **contenthost*[yourname]*** storage account that you recorded earlier in this lab.
+
+    1. Leave the **deployment slot setting** text box set to its default value, and then select **OK** to close the pop-up window.
     
     1.  Return to the **Configuration** section, and then select **Save** on the blade to persist your settings.  
-
+    
     > **Note**: Wait for your application settings to persist before you move forward with the lab.
+
+![](images/Lab-EnhancingWebAppByDeliveryNetwork_16.png)
 
 #### Task 4: Validate the corrected landing page
 
@@ -457,7 +481,9 @@ In this exercise, you registered the resource provider for Content Delivery Netw
 
     > **Note**: Wait for the restart operation to complete before you move forward with the lab. You'll receive a notification when the operation is done.
 
-1.  Back on the **App Service** blade, select **Browse**. A new browser window or tab will open and return the current website.
+1. Back on the **App Service** blade, select **Browse**. A new browser window or tab will open and return the current website.
+
+   ![](images/Lab-EnhancingWebAppByDeliveryNetwork_17.png)
 
 1.  Observe the updated website rendering multimedia content of various types.
 
@@ -471,53 +497,63 @@ In this exercise, you uploaded multimedia content as blobs to Storage containers
 
 #### Task 1: Retrieve endpoint URIs
 
-1.  In the Azure portal's navigation pane, select the **Resource groups** link.
+1. In the Azure portal's navigation pane, select the **Resource groups** link.
 
-1.  On the **Resource groups** blade, find and then select the **MarketingContent** resource group that you created earlier in this lab.
+1. On the **Resource groups** blade, find and then select the **MarketingContent** resource group that you created earlier in this lab.
 
-1.  On the **MarketingContent** blade, select the **contentdeliverynetwork** CDN profile that you created earlier in this lab.
+1. On the **MarketingContent** blade, select the **contentdeliverynetwork** CDN profile that you created earlier in this lab.
 
-1.  On the **CDN profile** blade, select the **cdnmedia*[yourname]*** endpoint.
+1. On the **CDN profile** blade, select the **cdnmedia*[yourname]*** endpoint.
 
-1.  On the **Endpoint** blade, copy the value of the **Endpoint hostname** text box. You will use this value later in the lab.
+1. On the **Endpoint** blade, copy the value of the **Endpoint hostname** text box. You will use this value later in the lab.
 
-1.  Close the **Endpoint** blade.
+   ![](images/Lab-EnhancingWebAppByDeliveryNetwork_18.png)
 
-1.  Back on the **CDN profile** blade, select the **cdnvideo*[yourname]*** endpoint.
+1. Close the **Endpoint** blade.
 
-1.  On the **Endpoint** blade, copy the value of the **Endpoint hostname** text box. You will use this value later in the lab.
+1. Back on the **CDN profile** blade, select the **cdnvideo*[yourname]*** endpoint.
+
+1. On the **Endpoint** blade, copy the value of the **Endpoint hostname** text box. You will use this value later in the lab.
 
 1.  Close the **Endpoint** blade.
 
 #### Task 2: Test multimedia content
 
-1.  Construct a URL for the **campus.jpg** resource by combining the **Endpoint hostname** URL from the **cdnmedia*[yourname]*** endpoint that you copied earlier in the lab with a relative path of **/campus.jpg**.
+1. Construct a URL for the **campus.jpg** resource by combining the **Endpoint hostname** URL from the **cdnmedia*[yourname]*** endpoint that you copied earlier in the lab with a relative path of **/campus.jpg**.
 
-    > **Note**: For example, if your **Endpoint hostname** URL is **https://cdnmediastudent.azureedge.net/**, your newly constructed URL would be **https://cdnmediastudent.azureedge.net/campus.jpg**.
+   > **Note**: For example, if your **Endpoint hostname** URL is **https://cdnmediastudent.azureedge.net/**, your newly constructed URL would be **https://cdnmediastudent.azureedge.net/campus.jpg**.
 
-1.  Construct a URL for the **conference.jpg** resource by combining the **Endpoint hostname** URL from the **cdnmedia*[yourname]*** endpoint that you copied earlier in the lab with a relative path of **/conference.jpg**.
+1. Construct a URL for the **conference.jpg** resource by combining the **Endpoint hostname** URL from the **cdnmedia*[yourname]*** endpoint that you copied earlier in the lab with a relative path of **/conference.jpg**.
 
-    > **Note**: For example, if your **Endpoint hostname** URL is **https://cdnmediastudent.azureedge.net/**, your newly constructed URL would be **https://cdnmediastudent.azureedge.net/conference.jpg**.
+   > **Note**: For example, if your **Endpoint hostname** URL is **https://cdnmediastudent.azureedge.net/**, your newly constructed URL would be **https://cdnmediastudent.azureedge.net/conference.jpg**.
 
-1.  Construct a URL for the **poster.jpg** resource by combining the **Endpoint hostname** URL from the **cdnmedia*[yourname]*** endpoint that you copied earlier in the lab with a relative path of **/poster.jpg**.
+1. Construct a URL for the **poster.jpg** resource by combining the **Endpoint hostname** URL from the **cdnmedia*[yourname]*** endpoint that you copied earlier in the lab with a relative path of **/poster.jpg**.
 
-    > **Note**: For example, if your **Endpoint hostname** URL is **https://cdnmediastudent.azureedge.net/**, your newly constructed URL would be **https://cdnmediastudent.azureedge.net/poster.jpg**.
+   > **Note**: For example, if your **Endpoint hostname** URL is **https://cdnmediastudent.azureedge.net/**, your newly constructed URL would be **https://cdnmediastudent.azureedge.net/poster.jpg**.
 
-1.  Construct a URL for the **welcome.mp4** resource by combining the **Endpoint hostname** URL from the **cdnvideo*[yourname]*** endpoint that you copied earlier in the lab with a relative path of **/welcome.mp4**.
+1. Construct a URL for the **welcome.mp4** resource by combining the **Endpoint hostname** URL from the **cdnvideo*[yourname]*** endpoint that you copied earlier in the lab with a relative path of **/welcome.mp4**.
 
-    > **Note**: For example, if your **Endpoint hostname** URL is **https://cdnvideostudent.azureedge.net/**, your newly constructed URL would be **https://cdnvideostudent.azureedge.net/welcome.mp4**.
+   > **Note**: For example, if your **Endpoint hostname** URL is **https://cdnvideostudent.azureedge.net/**, your newly constructed URL would be **https://cdnvideostudent.azureedge.net/welcome.mp4**.
 
 1.  On the taskbar, right-click the **Microsoft Edge** icon or activate the shortcut menu, and then select **New window**.
 
-1.  In the new browser window, go to the URL that you constructed for the **campus.jpg** media resource, and then verify that the resource was successfully found.
+1. In the new browser window, go to the URL that you constructed for the **campus.jpg** media resource, and then verify that the resource was successfully found.
 
-    > **Note**: If the content isn't available yet, the CDN endpoint is still initializing. This initialization process can take anywhere from 5 to 15 minutes.
+   > **Note**: If the content isn't available yet, the CDN endpoint is still initializing. This initialization process can take anywhere from 5 to 15 minutes.
 
-1.  Go to the URL that you constructed for the **conference.jpg** media resource, and then verify that the resource was successfully found.
+   ![](images/Lab-EnhancingWebAppByDeliveryNetwork_19.png)
 
-1.  Go to the URL that you constructed for the **poster.jpg** media resource, and then verify that the resource was successfully found.
+1. Go to the URL that you constructed for the **conference.jpg** media resource, and then verify that the resource was successfully found.
 
-1.  Go to the URL that you constructed for the **welcome.mp4** video resource, and then verify that the resource was successfully found.
+   ![](images/Lab-EnhancingWebAppByDeliveryNetwork_20.png)
+
+1. Go to the URL that you constructed for the **poster.jpg** media resource, and then verify that the resource was successfully found.
+
+   ![](images/Lab-EnhancingWebAppByDeliveryNetwork_21.png)
+
+1. Go to the URL that you constructed for the **welcome.mp4** video resource, and then verify that the resource was successfully found.
+
+   ![](images/Lab-EnhancingWebAppByDeliveryNetwork_22.png)
 
 1.  Close the browser window that you created in this task.
 
@@ -533,20 +569,24 @@ In this exercise, you uploaded multimedia content as blobs to Storage containers
 
 1.  In the **Configuration** section, perform the following actions:
     
-    1.  Select the **Application settings** tab.
+    1. Select the **Application settings** tab.
     
-    1.  Select the existing **CDNMediaEndpoint** application setting.
+    1. Select the existing **CDNMediaEndpoint** application setting.
 
-    1.  In the **Add/Edit application setting** pop-up dialog box, update the **Value** text box by entering the **Endpoint hostname** URL from the **cdnmedia*[yourname]*** endpoint that you copied earlier in the lab, and then select **OK**.
+    1. In the **Add/Edit application setting** pop-up dialog box, update the **Value** text box by entering the **Endpoint hostname** URL from the **cdnmedia*[yourname]*** endpoint that you copied earlier in the lab, and then select **OK**.
     
-    1.  Select the existing **CDNVideoEndpoint** application setting.
+       ![](images/Lab-EnhancingWebAppByDeliveryNetwork_23.png)
 
-    1.  In the **Add/Edit application setting** pop-up dialog box, update the **Value** text box by entering the **Endpoint hostname** URL from the **cdnvideo*[yourname]*** endpoint that you copied earlier in the lab, and then selec **OK**.
+    1. Select the existing **CDNVideoEndpoint** application setting.
     
+    1. In the **Add/Edit application setting** pop-up dialog box, update the **Value** text box by entering the **Endpoint hostname** URL from the **cdnvideo*[yourname]*** endpoint that you copied earlier in the lab, and then selec **OK**.
+
+       ![](images/Lab-EnhancingWebAppByDeliveryNetwork_24.png)
+
     1.  Select **Save** on the blade to persist your settings.  
-
+    
     > **Note**: Wait for your application settings to persist before you move forward with the lab.
-
+    
 1.  Back in the **Configuration** section, select **Overview**.
 
 1.  In the **Overview** section, select **Restart**. This operation will restart the Web App.
@@ -570,6 +610,8 @@ In this exercise, you uploaded multimedia content as blobs to Storage containers
 1.  In the new browser window, go to the **Endpoint hostname** URL for the **cdnweb*[yourname]*** endpoint.
 
 1.  Observe the website and multimedia content that are all served using Content Delivery Network.
+
+![](images/Lab-EnhancingWebAppByDeliveryNetwork_26.png)
 
 #### Review
 
